@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Background Generator</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #000000, #ffffff); /* Replace with your desired gradient colors */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            width: 500px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+        }
+        
+        .color-picker {
+            margin-bottom: 20px;
+        }
+        
+        .color-picker label {
+            display: inline-block;
+            width: 100px;
+        }
+        
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="color-picker">
+            <label for="color1">Color 1:</label>
+            <input type="color" id="color1">
+        </div>
+        <div class="color-picker">
+            <label for="color2">Color 2:</label>
+            <input type="color" id="color2">
+        </div>
+        <button onclick="generateBackground()">Generate Background</button>
+        <div class="result">
+            <p id="gradient"></p>
+        </div>
+    </div>
+
+    <script>
+        function generateBackground() {
+            var color1 = document.getElementById('color1').value;
+            var color2 = document.getElementById('color2').value;
+            var gradient = "linear-gradient(to right, " + color1 + ", " + color2 + ")";
+            document.body.style.background = gradient;
+            document.getElementById('gradient').textContent = "Background: " + gradient + ";";
+        }
+    </script>
+</body>
+</html>
